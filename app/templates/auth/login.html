@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 0 40px; /* Added padding to container */
+        }
+        .sidebar {
+            width: 15%; /* Reduced from 20% */
+            position: relative;
+            display: flex;
+            gap: 1px;
+            justify-content: center;
+        }
+        .light-column {
+            height: 100%;
+            width: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .light-segment {
+            background-color: white;
+            width: 100%;
+            border-radius: 5px;
+        }
+        /* Pattern 3,2,2,3,3,2,2,3,3,2 */
+        .pattern1 .light-segment:nth-child(1) { height: 30%; }
+        .pattern1 .light-segment:nth-child(2) { height: 20%; }
+        .pattern1 .light-segment:nth-child(3) { height: 20%; }
+        .pattern1 .light-segment:nth-child(4) { height: 30%; }
+        .pattern1 .light-segment:nth-child(5) { height: 30%; }
+        .pattern1 .light-segment:nth-child(6) { height: 20%; }
+        .pattern1 .light-segment:nth-child(7) { height: 20%; }
+        .pattern1 .light-segment:nth-child(8) { height: 30%; }
+        .pattern1 .light-segment:nth-child(9) { height: 30%; }
+        .pattern1 .light-segment:nth-child(10) { height: 20%; }
+
+        /* Pattern 2,3,3,2,2,3,3,2,2,3 */
+        .pattern2 .light-segment:nth-child(1) { height: 20%; }
+        .pattern2 .light-segment:nth-child(2) { height: 30%; }
+        .pattern2 .light-segment:nth-child(3) { height: 30%; }
+        .pattern2 .light-segment:nth-child(4) { height: 20%; }
+        .pattern2 .light-segment:nth-child(5) { height: 20%; }
+        .pattern2 .light-segment:nth-child(6) { height: 30%; }
+        .pattern2 .light-segment:nth-child(7) { height: 30%; }
+        .pattern2 .light-segment:nth-child(8) { height: 20%; }
+        .pattern2 .light-segment:nth-child(9) { height: 20%; }
+        .pattern2 .light-segment:nth-child(10) { height: 30%; }
+
+        .form-container {
+            width: 70%; /* Increased from 60% */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .login-box {
+            background-color: rgba(20, 20, 20, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+            z-index: 2;
+            width: 80%;
+            max-width: 400px;
+        }
+        h1 {
+            color: white;
+            text-shadow: 0 0 15px white;
+            margin-bottom: 20px;
+        }
+        input, button {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            background-color: #222;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #555;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left sidebar with 5 light bars -->
+        <div class="sidebar sidebar-left">
+            <div class="light-column pattern1">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern2">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern1">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern2">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern1">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+        </div>
+
+        <!-- Login form container -->
+        <div class="form-container">
+            <div class="login-box">
+                <h1>Login</h1>
+                <form action="/auth/login" method="POST">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right sidebar with 5 light bars -->
+        <div class="sidebar sidebar-right">
+            <div class="light-column pattern2">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern1">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern2">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern1">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+            <div class="light-column pattern2">
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+                <div class="light-segment"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

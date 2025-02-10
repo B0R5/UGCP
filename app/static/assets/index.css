@@ -1,0 +1,89 @@
+/* Paski świetlne (po lewej stronie) */
+.light-bar-left {
+    position: absolute;
+    top: 0;
+    right: 0; /* Przypisanie do prawej krawędzi */
+    z-index: 1;
+}
+
+.light-bar-left .light {
+    width: 12px;
+    height: 60px;
+    background-color: white;
+    border-radius: 6px;
+    margin: 10px 0;
+    position: absolute;
+}
+
+.light-bar-left .light:nth-child(1) { top: 10%; left: 0; }
+.light-bar-left .light:nth-child(2) { top: 25%; left: 0; }
+.light-bar-left .light:nth-child(3) { top: 40%; left: 0; }
+.light-bar-left .light:nth-child(4) { top: 55%; left: 0; }
+.light-bar-left .light:nth-child(5) { top: 70%; left: 0; }
+
+/* Paski świetlne (po prawej stronie) */
+.light-bar-right {
+    position: absolute;
+    top: 0;
+    left: 0; /* Przypisanie do lewej krawędzi */
+    z-index: 1;
+}
+
+.light-bar-right .light {
+    width: 12px;
+    height: 60px;
+    background-color: white;
+    border-radius: 6px;
+    margin: 10px 0;
+    position: absolute;
+}
+
+.light-bar-right .light:nth-child(1) { top: 10%; left: 0; }
+.light-bar-right .light:nth-child(2) { top: 25%; left: 0; }
+.light-bar-right .light:nth-child(3) { top: 40%; left: 0; }
+.light-bar-right .light:nth-child(4) { top: 55%; left: 0; }
+.light-bar-right .light:nth-child(5) { top: 70%; left: 0; }
+
+/* Multiplikacja pasków */
+.light-bar-left .light:nth-child(1):nth-of-type(odd) {
+    animation: lightAnimationLeft 2s infinite alternate;
+}
+.light-bar-left .light:nth-child(2):nth-of-type(even) {
+    animation: lightAnimationLeft 3s infinite alternate;
+}
+.light-bar-left .light:nth-child(3):nth-of-type(odd) {
+    animation: lightAnimationLeft 4s infinite alternate;
+}
+.light-bar-left .light:nth-child(4):nth-of-type(even) {
+    animation: lightAnimationLeft 5s infinite alternate;
+}
+.light-bar-left .light:nth-child(5):nth-of-type(odd) {
+    animation: lightAnimationLeft 6s infinite alternate;
+}
+
+.light-bar-right .light:nth-child(1):nth-of-type(odd) {
+    animation: lightAnimationRight 2s infinite alternate;
+}
+.light-bar-right .light:nth-child(2):nth-of-type(even) {
+    animation: lightAnimationRight 3s infinite alternate;
+}
+.light-bar-right .light:nth-child(3):nth-of-type(odd) {
+    animation: lightAnimationRight 4s infinite alternate;
+}
+.light-bar-right .light:nth-child(4):nth-of-type(even) {
+    animation: lightAnimationRight 5s infinite alternate;
+}
+.light-bar-right .light:nth-child(5):nth-of-type(odd) {
+    animation: lightAnimationRight 6s infinite alternate;
+}
+
+/* Animacja ruchu */
+@keyframes lightAnimationLeft {
+    0% { top: 10%; }
+    100% { top: 90%; }
+}
+
+@keyframes lightAnimationRight {
+    0% { top: 10%; }
+    100% { top: 90%; }
+}

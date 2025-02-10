@@ -1,0 +1,95 @@
+/* Tło */
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Kontener dla dashboardu */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Ramka dla dashboardu */
+.dashboard-frame {
+    width: 375px;
+    height: 667px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Kolumna po lewej */
+.left-column {
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.left-column .icon {
+    margin-bottom: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.left-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Kolumna po prawej */
+.right-column {
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.right-column .building-icon {
+    background-color: #444;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Tabela zasobów */
+.main-table {
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.top-row,
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.resource-card,
+.quantity-card {
+    background-color: #555;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    width: 48%;
+}
+
+.resource-card {
+    background-color: #777;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .dashboard-frame {
+        width: 100%;
+        height: 100%;
+    }
+}

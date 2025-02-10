@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Imperium liczy na Ciebie, {{ username }}</h1>
+
+    <!-- Lewa kolumna z ikonami Operations i Agents -->
+    <div class="left-column">
+        <div class="icon-section">
+            <h2>Operations</h2>
+            <ul class="operations-list">
+                {% for operation in operations %}
+                    <li>{{ operation.operation_name }} - {{ operation.description }}
+                        <br><small>Created on: {{ operation.start_date }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="icon-section">
+            <h2>Agents</h2>
+            <ul class="agents-list">
+                {% for agent in available_agents %}
+                    <li>{{ agent.name }} ({{ agent.role }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sekcja główna - Buildings -->
+    <div class="main-section">
+        <h2>Buildings</h2>
+        <table>
+            <tr>
+                <th>Building Name</th>
+                <th>Quantity</th>
+            </tr>
+            {% for building_name, quantity in buildings.items() if quantity > 0 %}
+                <tr>
+                    <td>{{ building_name }}</td>
+                    <td>{{ quantity }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Sekcja Zasobów -->
+    <div class="resources-section">
+        <h2>Resources</h2>
+        <ul class="resources-list">
+            {% for resource_name, quantity in resources.items() %}
+                <li>{{ resource_name }}: {{ quantity }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

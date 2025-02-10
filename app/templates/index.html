@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Powitanie -->
+        <div class="header">
+            <h1>Imperium liczy na Ciebie, {{ user }}</h1>
+        </div>
+
+        <!-- Ikony operacji i agentów -->
+        <div class="icons-container">
+            <div class="icon" onclick="showDetails('operations')">
+                <img src="{{ url_for('static', filename='operation_icon.png') }}" alt="Operations">
+                <p>Operations</p>
+            </div>
+            <div class="icon" onclick="showDetails('agents')">
+                <img src="{{ url_for('static', filename='agent_icon.png') }}" alt="Agents">
+                <p>Agents</p>
+            </div>
+        </div>
+
+        <!-- Szczegóły operacji -->
+        <div class="details" id="operations">
+            <h2>Operations</h2>
+            <ul>
+                {% for operation in operations %}
+                <li>
+                    <h3>{{ operation.operation_name }}</h3>
+                    <p>{{ operation.operation_description }}</p>
+                    <p><small>Created on: {{ operation.creation_date }}</small></p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Szczegóły agentów -->
+        <div class="details" id="agents">
+            <h2>Agents</h2>
+            <ul>
+                {% for agent in agents %}
+                <li>
+                    <h3>{{ agent.name }} {{ agent.surname }}</h3>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Budynki -->
+        <div class="buildings">
+            <h2>Buildings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Building Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for building in buildings %}
+                    {% if building.quantity > 0 %}
+                    <tr>
+                        <td>{{ building.building_name }}</td>
+                        <td>{{ building.quantity }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Zasoby (6 komórek na środku) -->
+        <div class="resources">
+            <h2>Resources</h2>
+            <div class="resource-cells">
+                {% for resource in resources %}
+                <div class="resource-cell">
+                    <h3>{{ resource.resource_name }}</h3>
+                    <p>{{ resource.resource_amount }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDetails(section) {
+            let sections = document.querySelectorAll('.details');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            let targetSection = document.getElementById(section);
+            targetSection.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
